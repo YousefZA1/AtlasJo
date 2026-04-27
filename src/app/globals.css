@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #F5F5F3;
+  --color-fg: #0B0B0B;
+  --color-primary: #2563EB;
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #F5F5F3;
+  color: #0B0B0B;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-shell {
+  width: min(100% - 2rem, 1248px);
+  margin-inline: auto;
+}
+
+.display-type {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.micro-type {
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: #2563EB;
+  color: white;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Cursor dot */
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #2563EB;
+  border-radius: 50%;
+  z-index: 9999;
+  transition: transform 0.15s ease-out;
+  mix-blend-mode: normal;
+  transform: translate(-50%, -50%);
+}
+
+.simple-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0B0B;
+  opacity: 0.72;
+  transition:
+    color 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.simple-social-link:hover {
+  color: #2563EB;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Smooth scroll sections */
+section {
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .site-shell {
+    width: min(100% - 1.25rem, 1248px);
+  }
 }
