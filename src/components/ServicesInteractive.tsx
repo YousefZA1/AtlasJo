@@ -162,29 +162,29 @@ export default function ServicesInteractive() {
            {processSteps.map((step, index) => (
               <div key={index} className="process-step relative z-20 flex flex-col justify-center w-[85vw] md:w-[45vw] lg:w-[32vw] h-full shrink-0">
                  
-                 {/* Huge Number — always centered behind content */}
+                 {/* Huge Number — more visible with thicker stroke */}
                  <div 
-                    className="step-number absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(8rem,18vw,16rem)] font-black text-transparent opacity-[0.07] pointer-events-none select-none leading-none" 
-                    style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.4)" }}
+                    className="step-number absolute top-1/2 left-0 -translate-y-1/2 text-[clamp(8rem,18vw,18rem)] font-black text-transparent opacity-[0.22] pointer-events-none select-none leading-none" 
+                    style={{ WebkitTextStroke: "3px rgba(255,255,255,0.9)" }}
                  >
                     {step.number}
                  </div>
 
-                 {/* Node dot — always on the timeline */}
-                 <div className="step-dot absolute top-1/2 left-10 w-4 h-4 bg-[#050505] border-2 border-primary rounded-full -translate-y-1/2 z-30 shadow-[0_0_12px_rgba(37,99,235,0.5)]"></div>
+                 {/* Node dot */}
+                 <div className="step-dot absolute top-1/2 left-10 w-5 h-5 bg-[#050505] border-[3px] border-primary rounded-full -translate-y-1/2 z-30 shadow-[0_0_15px_rgba(37,99,235,0.6)]"></div>
 
-                 {/* Small indicator dot — decorative */}
+                 {/* Small decorative dot */}
                  <div className="step-dot absolute top-[30%] right-[20%] w-2 h-2 bg-primary rounded-full z-20"></div>
 
-                 {/* Connecting line — always goes up from the dot */}
-                 <div className="step-line absolute left-[47px] bottom-[50%] w-px h-16 bg-primary/30 z-20"></div>
+                 {/* Connecting line */}
+                 <div className={`step-line absolute left-[49px] w-px bg-primary/40 z-20 ${index % 2 === 0 ? "bottom-[50%] h-12" : "top-[50%] h-12"}`}></div>
                  
-                 {/* Content — always above the timeline */}
-                 <div className="step-content absolute left-10 bottom-[50%] mb-20 flex flex-col gap-3 w-full pr-10 z-30">
-                    <h4 className="text-[clamp(1.4rem,2vw,2.2rem)] font-black uppercase tracking-tight leading-[1.1] max-w-sm text-white">
+                 {/* Content above/below line — alternating */}
+                 <div className={`step-content absolute left-10 flex flex-col gap-4 w-full pr-10 z-30 ${index % 2 === 0 ? "bottom-[50%] mb-12" : "top-[50%] mt-12"}`}>
+                    <h4 className="text-[clamp(1.5rem,2.2vw,2.5rem)] font-black uppercase tracking-tight leading-[1.05] max-w-sm text-white">
                       {step.title}
                     </h4>
-                    <p className="text-white/55 text-[14px] md:text-[16px] max-w-[280px] md:max-w-[320px] leading-relaxed font-medium">
+                    <p className="text-white/60 text-[15px] md:text-[17px] max-w-[280px] md:max-w-[340px] leading-relaxed font-medium">
                       {step.description}
                     </p>
                  </div>
