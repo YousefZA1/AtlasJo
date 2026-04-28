@@ -43,7 +43,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-[99] flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-[99] flex flex-col items-end pointer-events-none">
       
       {/* Premium Minimal Panel */}
       <div 
@@ -79,7 +79,7 @@ export default function ChatWidget() {
       {/* Premium Trigger FAB */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative w-14 h-14 rounded-full shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-200 ease-out z-50 overflow-hidden ${isOpen ? 'bg-[#111111] text-white scale-95' : 'bg-[#050505] text-white hover:scale-105 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.4)]'}`}
+        className={`pointer-events-auto relative w-14 h-14 rounded-full shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-200 ease-out z-50 overflow-hidden ${isOpen ? 'bg-[#111111] text-white scale-95' : 'bg-[#050505] text-white hover:scale-105 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.4)]'}`}
         aria-controls="contact-options"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close contact options" : "Open contact options"}
