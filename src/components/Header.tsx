@@ -5,10 +5,10 @@ import type { MouseEvent } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
-  { label: "Insights", href: "#insights" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Process", href: "#process" },
+  { label: "Tech Stack", href: "#tech-stack" },
 ];
 
 function scrollToSection(href: string) {
@@ -54,7 +54,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="site-shell grid grid-cols-[1fr_auto_1fr] items-center py-6 md:py-9">
+      <div className="site-shell grid grid-cols-[1fr_auto_1fr] items-center py-8 md:py-10">
         <a
           href="#"
           onClick={(event) => handleAnchorClick(event, "#")}
@@ -80,7 +80,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={(event) => handleAnchorClick(event, item.href)}
-              className="text-[11px] uppercase leading-none tracking-[0.24em] text-fg hover:text-primary transition-colors duration-300 font-black"
+              className="text-[13px] md:text-[14px] uppercase leading-none tracking-[0.24em] text-fg hover:text-primary transition-colors duration-300 font-black"
             >
               {item.label}
             </a>
@@ -91,7 +91,7 @@ export default function Header() {
           <a
             href="#contact"
             onClick={(event) => handleAnchorClick(event, "#contact")}
-            className="hidden md:block text-[11px] uppercase leading-none tracking-[0.24em] font-black text-fg hover:text-primary transition-colors duration-300"
+            className="hidden md:block text-[13px] md:text-[14px] uppercase leading-none tracking-[0.24em] font-black text-fg hover:text-primary transition-colors duration-300"
           >
             LET&apos;S TALK!
           </a>
@@ -132,7 +132,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={(event) => handleAnchorClick(event, item.href)}
-              className="text-[12px] uppercase tracking-[0.2em] text-fg/60 hover:text-fg transition-colors font-medium"
+              className="text-[14px] uppercase tracking-[0.2em] text-fg/60 hover:text-fg transition-colors font-medium"
             >
               {item.label}
             </a>
@@ -140,7 +140,7 @@ export default function Header() {
           <a
             href="#contact"
             onClick={(event) => handleAnchorClick(event, "#contact")}
-            className="text-[12px] uppercase tracking-[0.2em] font-bold text-primary"
+            className="text-[14px] uppercase tracking-[0.2em] font-bold text-primary"
           >
             LET&apos;S TALK!
           </a>

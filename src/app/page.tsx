@@ -8,10 +8,12 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Showreel from "@/components/Showreel";
 import Statement from "@/components/Statement";
-import OurServices from "@/components/OurServices";
+import SolutionsWeBuild from "@/components/SolutionsWeBuild";
 import ServicesInteractive from "@/components/ServicesInteractive";
 import TechMarquee from "@/components/TechMarquee";
+import Stats from "@/components/Stats";
 import CTAFooter from "@/components/CTAFooter";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -74,11 +76,14 @@ export default function Home() {
             <Hero />
             <Showreel />
             <Statement />
-            <OurServices />
+            <SolutionsWeBuild />
             <ServicesInteractive />
             <TechMarquee />
+            <Stats />
             <CTAFooter />
           </main>
+          
+          <ChatWidget />
         </>
       )}
     </>

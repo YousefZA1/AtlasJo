@@ -34,7 +34,7 @@ export default function TechMarquee() {
 
   return (
     <section
-      id="insights"
+      id="tech-stack"
       ref={sectionRef}
       className="my-20 border-y border-fg/18 py-8 md:my-32 md:py-11"
     >

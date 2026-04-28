@@ -7,28 +7,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const processSteps = [
   {
     number: "01",
-    title: "DISCOVERY & ARCHITECTURE",
-    description: "We dive deep into your business logic, identifying bottlenecks and mapping out a robust system architecture tailored to your goals.",
+    title: "BUSINESS & WORKFLOW ANALYSIS",
+    description: "We analyze your business workflows, identify bottlenecks, and define where automation and systems can create real impact.",
   },
   {
     number: "02",
-    title: "INTERFACE DIRECTION",
-    description: "Crafting pixel-perfect, user-centered designs. We balance striking aesthetics with functional precision for an intuitive experience.",
+    title: "SYSTEM DESIGN",
+    description: "We design a complete system architecture — from data flow to user experience — built for clarity and scalability.",
   },
   {
     number: "03",
-    title: "ENGINEERING & AI",
-    description: "Building the scalable core. We write clean code and integrate intelligent AI flows to bring the architecture to life securely.",
+    title: "DEVELOPMENT & INTEGRATION",
+    description: "We build your platform and integrate all tools, APIs, and automation flows into one seamless system.",
   },
   {
     number: "04",
-    title: "TESTING & DEPLOYMENT",
-    description: "Rigorous performance testing and QA. We ensure the system is lightning-fast, bug-free, and seamlessly deployed to production.",
+    title: "TESTING & OPTIMIZATION",
+    description: "We rigorously test performance, fix bottlenecks, and optimize your system for speed, reliability, and stability.",
   },
   {
     number: "05",
-    title: "SCALE & AUTOMATION",
-    description: "Launch is just the beginning. We automate your workflows and scale the infrastructure dynamically as your user base grows.",
+    title: "LAUNCH & AUTOMATION",
+    description: "We launch your system and activate automation workflows to reduce manual work and improve efficiency from day one.",
+  },
+  {
+    number: "06",
+    title: "SCALING & GROWTH",
+    description: "As your business grows, we continuously improve and scale your systems to handle more users, data, and operations.",
   },
 ];
 
@@ -132,7 +137,7 @@ export default function ServicesInteractive() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="relative w-full h-screen bg-[#050505] text-white overflow-hidden flex flex-col">
+    <section ref={sectionRef} id="process" className="relative w-full h-screen bg-[#050505] text-white overflow-hidden flex flex-col">
       {/* Header stays fixed during pin */}
       <div className="absolute top-16 md:top-24 left-6 md:left-12 lg:left-24 z-20 pointer-events-none">
         <h2 className="micro-type font-black text-white/50 tracking-[0.2em] mb-3">OUR PROCESS</h2>

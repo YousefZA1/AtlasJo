@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function Hero() {
@@ -8,7 +8,15 @@ export default function Hero() {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
+  // Typewriter Effect State
+  const words = ["THAT SCALE", "THAT CONVERT", "THAT PERFORM"];
+  const [i, setI] = useState(0); 
+  const [j, setJ] = useState(0); 
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+
   useEffect(() => {
+    // GSAP Entrance Animations
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: { ease: "power2.out" },
@@ -40,10 +48,11 @@ export default function Hero() {
           "-=0.18"
         );
 
+      // Blinking Cursor Animation
       gsap.to(".blinking-cursor", {
         opacity: 0,
-        duration: 0.6,
-        ease: "power2.inOut",
+        duration: 0.5,
+        ease: "steps(1)",
         repeat: -1,
         yoyo: true,
       });
@@ -51,6 +60,38 @@ export default function Hero() {
 
     return () => ctx.revert();
   }, []);
+
+  // Typewriter Logic
+  useEffect(() => {
+    // Add a small initial delay so it doesn't start typing while the GSAP entrance animation is playing
+    const initialDelay = setTimeout(() => {
+      const currentWord = words[i];
+
+      const typeTimeout = setTimeout(() => {
+        if (isDeleting) {
+          setText(currentWord.substring(0, j - 1));
+          setJ(j - 1);
+
+          if (j === 1) { // When almost fully deleted
+            setIsDeleting(false);
+            setI((prev) => (prev + 1) % words.length);
+          }
+        } else {
+          setText(currentWord.substring(0, j + 1));
+          setJ(j + 1);
+
+          if (j === currentWord.length) {
+            // Pause at the end of the word before starting to delete
+            setIsDeleting(true);
+          }
+        }
+      }, isDeleting ? 60 : 120); // Faster deleting, slower typing
+
+      return () => clearTimeout(typeTimeout);
+    }, j === 0 && !isDeleting ? 800 : j === words[i].length ? 2500 : 0);
+
+    return () => clearTimeout(initialDelay);
+  }, [j, i, isDeleting, words]);
 
   return (
     <section
@@ -68,14 +109,14 @@ export default function Hero() {
             DIGITAL SYSTEMS
           </h1>
         </div>
-        <div className="overflow-hidden py-[0.09em]">
+        <div className="overflow-hidden py-[0.09em] flex justify-center items-center">
           <h1
-            className="hero-line display-type text-[clamp(4.1rem,9.7vw,9.6rem)] leading-[1.01] uppercase text-primary"
-            aria-label="THAT SCALE."
+            className="hero-line display-type text-[clamp(4.1rem,9.7vw,9.6rem)] leading-[1.01] uppercase text-primary flex items-end justify-center min-h-[1.1em]"
+            aria-label="THAT SCALE"
           >
-            THAT SCALE
+            {text}
             <span
-              className="blinking-cursor ml-[0.06em] inline-block h-[0.82em] w-[0.06em] translate-y-[0.06em] bg-primary"
+              className="blinking-cursor ml-[0.02em] inline-block h-[0.82em] w-[0.06em] translate-y-[0.06em] bg-primary"
               aria-hidden="true"
             />
           </h1>

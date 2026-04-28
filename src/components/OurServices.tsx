@@ -3,10 +3,18 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { services } from "@/lib/services";
+
+const newServices = [
+  { id: "lead-gen", number: "01", title: "Lead Generation Systems", description: "Automated funnels and systems that capture, qualify, and convert leads into paying clients." },
+  { id: "automation", number: "02", title: "Business Automation", description: "We automate repetitive workflows and operations so you can save hours every week." },
+  { id: "web-platforms", number: "03", title: "Custom Web Platforms", description: "Scalable web applications and platforms built for performance and long-term growth." },
+  { id: "mvp", number: "04", title: "MVP Development", description: "Turn your idea into a working product fast with production-ready MVP systems." },
+  { id: "ai-workflows", number: "05", title: "AI-Powered Workflows", description: "Integrate AI into your processes to improve efficiency and decision-making." },
+  { id: "dashboards", number: "06", title: "Dashboards & Internal Tools", description: "Custom dashboards and internal systems that give you full control over your business." },
+];
 
 function BentoVisual({ id }: { id: string }) {
-  if (id === "web-development") {
+  if (id === "lead-gen") {
     return (
       <div className="w-full h-full relative p-8 flex flex-col gap-3 justify-center opacity-80">
          <div className="w-3/4 h-2 bg-primary/40 rounded-full transition-all duration-500 group-hover:w-full"></div>
@@ -16,7 +24,7 @@ function BentoVisual({ id }: { id: string }) {
       </div>
     );
   }
-  if (id === "saas-solutions") {
+  if (id === "web-platforms") {
     return (
       <div className="w-full h-full flex items-end gap-3 justify-center pb-4 opacity-80">
          <div className="w-[15%] bg-fg/5 rounded-t-md h-[40%] origin-bottom transition-all duration-1000 group-hover:h-[60%]"></div>
@@ -36,7 +44,7 @@ function BentoVisual({ id }: { id: string }) {
       </div>
     );
   }
-  if (id === "ui-ux-design") {
+  if (id === "mvp") {
     return (
       <div className="w-full h-full relative opacity-60">
          <div className="absolute bottom-0 right-0 w-[80%] h-[80%] border-t border-l border-fg/10 rounded-tl-xl bg-gradient-to-br from-fg/5 to-transparent transition-all duration-500 group-hover:w-[90%] group-hover:h-[90%]"></div>
@@ -44,7 +52,7 @@ function BentoVisual({ id }: { id: string }) {
       </div>
     );
   }
-  if (id === "ai-integration") {
+  if (id === "ai-workflows") {
     return (
       <div className="w-full h-full relative">
          <svg className="w-full h-full" viewBox="0 0 100 100">
@@ -61,7 +69,7 @@ function BentoVisual({ id }: { id: string }) {
       </div>
     );
   }
-  // System Architecture
+  // Dashboards & Internal Tools
   return (
     <div className="w-full h-full flex flex-col justify-center gap-3 px-8 opacity-80">
        <div className="w-full h-px bg-primary/40 transition-all duration-500 group-hover:translate-x-2"></div>
@@ -114,102 +122,107 @@ export default function OurServices() {
     <section ref={sectionRef} id="services" className="pt-24 pb-12 md:pt-40 md:pb-20 bg-bg text-fg">
       <div className="site-shell">
         <h2 className="bento-header micro-type font-black text-fg/50 tracking-[0.2em] mb-4">OUR EXPERTISE</h2>
-        <h3 className="bento-header display-type text-[clamp(2.5rem,5vw,5rem)] uppercase leading-[1] mb-16 md:mb-24">
-           WHAT WE <span className="text-primary">DO</span>
-        </h3>
+        <div className="bento-header mb-16 md:mb-24 max-w-4xl">
+          <h3 className="display-type text-[clamp(2.5rem,5vw,5rem)] uppercase leading-[1] mb-6">
+             SOLUTIONS WE <span className="text-primary">BUILD</span>
+          </h3>
+          <p className="text-fg/70 text-lg md:text-xl font-medium leading-relaxed max-w-2xl">
+            We design and build systems tailored to real business problems — focused on automation, scalability, and growth.
+          </p>
+        </div>
 
         <div className="bento-grid grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[280px]">
            
-           {/* 1. Web Development (col-span-2) */}
+           {/* 1. Lead Generation Systems (col-span-2) */}
            <div className="bento-item group relative col-span-1 md:col-span-2 row-span-1 rounded-[24px] bg-white border border-fg/10 overflow-hidden hover:border-primary/40 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div>
-                    <span className="micro-type text-fg/40 mb-3 block">{services[0].number}</span>
-                    <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-fg">{services[0].title}</h4>
+                    <span className="micro-type text-fg/40 mb-3 block">{newServices[0].number}</span>
+                    <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-fg">{newServices[0].title}</h4>
                  </div>
-                 <p className="text-fg/60 max-w-md font-medium">{services[0].description}</p>
+                 <p className="text-fg/60 max-w-md font-medium">{newServices[0].description}</p>
               </div>
               <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                 <BentoVisual id={services[0].id} />
+                 <BentoVisual id={newServices[0].id} />
               </div>
            </div>
 
-           {/* 2. SaaS (row-span-2) */}
+           {/* 2. Business Automation (row-span-2) */}
            <div className="bento-item group relative col-span-1 row-span-1 md:row-span-2 rounded-[24px] bg-white border border-fg/10 overflow-hidden hover:border-primary/40 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div>
-                    <span className="micro-type text-fg/40 mb-3 block">{services[1].number}</span>
-                    <h4 className="text-3xl font-black uppercase tracking-tight text-fg">{services[1].title}</h4>
+                    <span className="micro-type text-fg/40 mb-3 block">{newServices[1].number}</span>
+                    <h4 className="text-3xl font-black uppercase tracking-tight text-fg">{newServices[1].title}</h4>
                  </div>
                  <div className="flex-1 my-6 relative">
-                    <BentoVisual id={services[1].id} />
+                    <BentoVisual id={newServices[1].id} />
                  </div>
-                 <p className="text-fg/60 font-medium text-sm leading-relaxed">{services[1].description}</p>
+                 <p className="text-fg/60 font-medium text-sm leading-relaxed">{newServices[1].description}</p>
               </div>
            </div>
 
-           {/* 3. Automation (col-span-1) */}
+           {/* 3. Custom Web Platforms (col-span-1) */}
            <div className="bento-item group relative col-span-1 row-span-1 rounded-[24px] bg-white border border-fg/10 overflow-hidden hover:border-primary/40 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div className="flex justify-between items-start">
                     <div>
-                       <span className="micro-type text-fg/40 mb-3 block">{services[2].number}</span>
-                       <h4 className="text-2xl font-black uppercase tracking-tight max-w-[150px] leading-none text-fg">{services[2].title}</h4>
+                       <span className="micro-type text-fg/40 mb-3 block">{newServices[2].number}</span>
+                       <h4 className="text-2xl font-black uppercase tracking-tight max-w-[150px] leading-none text-fg">{newServices[2].title}</h4>
                     </div>
                     <div className="w-12 h-12 shrink-0">
-                       <BentoVisual id={services[2].id} />
+                       <BentoVisual id={newServices[2].id} />
                     </div>
                  </div>
-                 <p className="text-fg/60 font-medium text-sm mt-4 leading-relaxed">{services[2].description}</p>
+                 <p className="text-fg/60 font-medium text-sm mt-4 leading-relaxed">{newServices[2].description}</p>
               </div>
            </div>
 
-           {/* 4. UI/UX Design (col-span-1) */}
+           {/* 4. MVP Development (col-span-1) */}
            <div className="bento-item group relative col-span-1 row-span-1 rounded-[24px] bg-white border border-fg/10 overflow-hidden hover:border-primary/40 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="absolute inset-0 bg-gradient-to-tl from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div className="flex justify-between items-start">
                     <div>
-                       <span className="micro-type text-fg/40 mb-3 block">{services[3].number}</span>
-                       <h4 className="text-2xl font-black uppercase tracking-tight max-w-[150px] leading-none text-fg">{services[3].title}</h4>
+                       <span className="micro-type text-fg/40 mb-3 block">{newServices[3].number}</span>
+                       <h4 className="text-2xl font-black uppercase tracking-tight max-w-[150px] leading-none text-fg">{newServices[3].title}</h4>
                     </div>
                  </div>
-                 <p className="text-fg/60 font-medium text-sm mt-4 leading-relaxed relative z-10">{services[3].description}</p>
+                 <p className="text-fg/60 font-medium text-sm mt-4 leading-relaxed relative z-10">{newServices[3].description}</p>
                  <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none">
-                    <BentoVisual id={services[3].id} />
+                    <BentoVisual id={newServices[3].id} />
                  </div>
               </div>
            </div>
 
-           {/* 5. AI Integration (col-span-2) */}
+           {/* 5. AI-Powered Workflows (col-span-2) */}
            <div className="bento-item group relative col-span-1 md:col-span-2 row-span-1 rounded-[24px] bg-white border border-fg/10 overflow-hidden hover:border-primary/40 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div>
-                    <span className="micro-type text-fg/40 mb-3 block">{services[4].number}</span>
-                    <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-fg">{services[4].title}</h4>
+                    <span className="micro-type text-fg/40 mb-3 block">{newServices[4].number}</span>
+                    <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-fg">{newServices[4].title}</h4>
                  </div>
-                 <p className="text-fg/60 max-w-md font-medium leading-relaxed">{services[4].description}</p>
+                 <p className="text-fg/60 max-w-md font-medium leading-relaxed">{newServices[4].description}</p>
               </div>
               <div className="absolute right-10 top-1/2 -translate-y-1/2 w-48 h-48 opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                 <BentoVisual id={services[4].id} />
+                 <BentoVisual id={newServices[4].id} />
               </div>
            </div>
 
-           {/* 6. System Architecture (col-span-1) */}
+           {/* 6. Dashboards & Internal Tools (col-span-1) */}
            <div className="bento-item group relative col-span-1 row-span-1 rounded-[24px] bg-primary/5 border border-primary/20 overflow-hidden hover:bg-primary/10 transition-colors duration-500 cursor-pointer shadow-sm">
               <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
                  <div>
-                    <span className="micro-type text-primary/80 mb-3 block">{services[5].number}</span>
-                    <h4 className="text-2xl font-black uppercase tracking-tight text-primary leading-none">{services[5].title}</h4>
+                    <span className="micro-type text-primary/80 mb-3 block">{newServices[5].number}</span>
+                    <h4 className="text-2xl font-black uppercase tracking-tight text-primary leading-none">{newServices[5].title}</h4>
                  </div>
-                 <p className="text-fg/80 font-medium text-sm mt-4 leading-relaxed">{services[5].description}</p>
+                 <p className="text-fg/80 font-medium text-sm mt-4 leading-relaxed">{newServices[5].description}</p>
               </div>
               <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply">
-                 <BentoVisual id={services[5].id} />
+                 <BentoVisual id={newServices[5].id} />
               </div>
            </div>
            
