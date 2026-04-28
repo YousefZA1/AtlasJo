@@ -1,0 +1,11 @@
+
+> atlasjo-web@0.1.0 dev
+> next dev --port 3003
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3003
+- Network:       http://192.168.187.1:3003
+✓ Ready in 396ms
+
+ GET / 200 in 466ms (next.js: 222ms, application-code: 244ms)
+[?25h

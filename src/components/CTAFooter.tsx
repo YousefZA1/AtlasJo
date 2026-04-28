@@ -181,7 +181,7 @@ export default function CTAFooter() {
                 target="_blank"
                 rel="noreferrer"
                 data-social={social.name.toLowerCase()}
-                className="simple-social-link"
+                className="simple-social-link block p-2 -m-2 relative z-50 hover:text-primary transition-colors cursor-pointer pointer-events-auto"
               >
                 <svg
                   width="20"

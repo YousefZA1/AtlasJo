@@ -138,8 +138,8 @@ export default function ServicesInteractive() {
 
   return (
     <section ref={sectionRef} id="process" className="relative w-full h-screen bg-[#050505] text-white overflow-hidden flex flex-col">
-      {/* Header stays fixed during pin */}
-      <div className="absolute top-16 md:top-24 left-6 md:left-12 lg:left-24 z-20 pointer-events-none">
+      {/* Header stays fixed during pin because only the scroll container moves horizontally */}
+      <div className="pt-24 md:pt-32 px-6 md:px-12 lg:px-24 shrink-0 z-20">
         <h2 className="micro-type font-black text-white/50 tracking-[0.2em] mb-3">OUR PROCESS</h2>
         <h3 className="display-type text-[clamp(2.5rem,5vw,5rem)] uppercase leading-[1] text-white">
            HOW WE <span className="text-primary">BUILD</span>
@@ -147,8 +147,8 @@ export default function ServicesInteractive() {
       </div>
 
       {/* The main horizontal scrolling container */}
-      <div className="flex-1 flex items-center mt-10 md:mt-20">
-        <div ref={scrollContainerRef} className="relative flex flex-nowrap w-max h-[70vh] items-center px-[10vw] md:px-[20vw] lg:px-[15vw]">
+      <div className="flex-1 flex items-center w-full">
+        <div ref={scrollContainerRef} className="relative flex flex-nowrap w-max h-[60vh] min-h-[400px] items-center px-[10vw] md:px-[20vw] lg:px-[15vw]">
            
            {/* Background tracking line */}
            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/10 -translate-y-1/2 z-0"></div>
