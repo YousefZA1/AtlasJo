@@ -93,7 +93,7 @@ export default function OurWork() {
         <div 
           className="flex overflow-x-auto gap-6 lg:gap-8 pb-12 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-6 px-6 md:-mx-12 md:px-12 lg:-mx-24 lg:px-24"
         >
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <div 
               key={project.number} 
               className="bg-white rounded-[24px] border border-[#111111]/5 overflow-hidden flex flex-col shadow-sm hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-shadow min-w-[85vw] md:min-w-[400px] lg:min-w-[420px] snap-center shrink-0"

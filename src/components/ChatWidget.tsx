@@ -50,8 +50,8 @@ export default function ChatWidget() {
         className={`mb-5 w-[calc(100vw-3rem)] max-w-[300px] bg-[#050505] text-white rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden origin-bottom-right transition-all duration-200 ease-out ${isOpen ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}`}
       >
         <div className="p-7">
-          <h3 className="text-xl font-medium tracking-tight mb-1 text-white">Let's Connect</h3>
-          <p className="text-xs text-white/50 mb-7 font-medium">Choose how you'd like to reach us.</p>
+          <h3 className="text-xl font-medium tracking-tight mb-1 text-white">Let&apos;s Connect</h3>
+          <p className="text-xs text-white/50 mb-7 font-medium">Choose how you&apos;d like to reach us.</p>
 
           <div className="flex flex-col gap-3">
             {contactOptions.map((option, idx) => (
