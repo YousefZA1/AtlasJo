@@ -65,7 +65,6 @@ export default function Header() {
             alt="Atlas Jo"
             width={40}
             height={40}
-            unoptimized
             className="h-[38px] w-[38px] object-contain object-center transition-transform duration-300 group-hover:scale-105"
           />
           <span className="text-[16px] md:text-[18px] font-black tracking-[0.18em] uppercase text-fg leading-none">

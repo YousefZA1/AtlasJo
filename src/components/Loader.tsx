@@ -135,7 +135,6 @@ export default function Loader({ onReveal, onComplete }: LoaderProps) {
             width={116}
             height={116}
             priority
-            unoptimized
             className="h-[88px] w-[88px] object-contain md:h-[116px] md:w-[116px]"
           />
         </div>

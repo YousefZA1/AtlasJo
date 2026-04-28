@@ -72,7 +72,6 @@ body {
   background-color: #2563EB;
   border-radius: 50%;
   z-index: 9999;
-  transition: transform 0.15s ease-out;
   mix-blend-mode: normal;
   transform: translate(-50%, -50%);
 }
@@ -93,11 +92,6 @@ body {
   color: #2563EB;
   opacity: 1;
   transform: translateY(-2px);
-}
-
-/* Smooth scroll sections */
-section {
-  will-change: transform;
 }
 
 @media (max-width: 768px) {

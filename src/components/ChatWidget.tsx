@@ -47,6 +47,7 @@ export default function ChatWidget() {
       
       {/* Premium Minimal Panel */}
       <div 
+        id="contact-options"
         className={`mb-5 w-[calc(100vw-3rem)] max-w-[300px] bg-[#050505] text-white rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden origin-bottom-right transition-all duration-200 ease-out ${isOpen ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}`}
       >
         <div className="p-7">
@@ -54,12 +55,12 @@ export default function ChatWidget() {
           <p className="text-xs text-white/50 mb-7 font-medium">Choose how you&apos;d like to reach us.</p>
 
           <div className="flex flex-col gap-3">
-            {contactOptions.map((option, idx) => (
+            {contactOptions.map((option) => (
               <a 
-                key={idx}
+                key={option.label}
                 href={option.href}
                 target={option.href.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
+                rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="contact-option group flex items-center gap-4 p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-white/10 transition-colors duration-200"
               >
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-white/70 group-hover:text-white group-hover:scale-110 transition-transform duration-200">
@@ -79,7 +80,9 @@ export default function ChatWidget() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`relative w-14 h-14 rounded-full shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-200 ease-out z-50 overflow-hidden ${isOpen ? 'bg-[#111111] text-white scale-95' : 'bg-[#050505] text-white hover:scale-105 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.4)]'}`}
-        aria-label="Toggle Menu"
+        aria-controls="contact-options"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Close contact options" : "Open contact options"}
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
 

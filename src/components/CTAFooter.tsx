@@ -135,6 +135,7 @@ export default function CTAFooter() {
                 href={item.href}
                 className="cta-contact-item group grid grid-cols-[2rem_1fr_1.25rem] items-center gap-4 border-b border-fg/12 py-5 text-fg transition-colors duration-300 last:border-b-0 hover:text-primary sm:grid-cols-[2rem_5.5rem_1fr_1.25rem]"
                 target={item.label === "LOCATION" ? "_blank" : undefined}
+                rel={item.label === "LOCATION" ? "noopener noreferrer" : undefined}
               >
                 <svg
                   width="22"
@@ -205,7 +206,6 @@ export default function CTAFooter() {
             alt="Atlas Jo"
             width={32}
             height={32}
-            unoptimized
             className="h-[30px] w-[30px] object-contain object-center"
           />
           <span className="text-[15px] font-black tracking-[0.18em] uppercase text-fg">
